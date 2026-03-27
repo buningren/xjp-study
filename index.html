@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>习近平新时代中国特色社会主义思想概论 · 智学系统</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --primary:#c0392b;--primary2:#e74c3c;--primary3:#f5d0cc;
+  --gold:#f39c12;--green:#27ae60;--green2:#2ecc71;
+  --blue:#2980b9;--blue2:#3498db;
+  --dark:#1a1a2e;--dark2:#16213e;--dark3:#0f3460;
+  --bg:#f0f2f5;--card:#fff;--border:#e8e8e8;
+  --text:#2c3e50;--text2:#7f8c8d;--text3:#95a5a6;
+  --shadow:0 2px 12px rgba(0,0,0,.08);
+  --shadow2:0 4px 24px rgba(0,0,0,.12);
+  --radius:14px;--radius2:10px;--radius3:8px
+}
+html,body{height:100%}
+body{font-family:'Microsoft YaHei','PingFang SC',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar{width:6px;height:6px}
+::-webkit-scrollbar-track{background:#f0f0f0;border-radius:3px}
+::-webkit-scrollbar-thumb{background:#ccc;border-radius:3px}
+::-webkit-scrollbar-thumb:hover{background:#aaa}
+
+/* ===== NAV ===== */
+.nav{background:linear-gradient(135deg,var(--dark) 0%,var(--dark2) 50%,var(--dark3) 100%);
+  color:#fff;padding:0 28px;display:flex;align-items:center;
+  justify-content:space-between;height:64px;
+  box-shadow:0 2px 16px rgba(0,0,0,.3);position:sticky;top:0;z-index:100}
+.nav-brand{display:flex;align-items:center;gap:10px}
+.nav-logo{width:34px;height:34px;background:var(--primary);border-radius:8px;
+  display:flex;align-items:center;justify-content:center;font-size:18px;
+  box-shadow:0 2px 8px rgba(192,57,43,.4)}
+.nav-title{font-size:16px;font-weight:700;letter-spacing:.3px}
+.nav-sub{font-size:11px;opacity:.6;margin-top:1px}
+.nav-tabs{display:flex;gap:4px}
+.nav-tab{padding:8px 18px;border-radius:var(--radius3);cursor:pointer;
+  font-size:13px;font-weight:500;color:rgba(255,255,255,.65);
+  transition:.2s;border:none;background:none;letter-spacing:.3px}
+.nav-tab:hover{background:rgba(255,255,255,.12);color:#fff}
+.nav-tab.active{background:rgba(255,255,255,.18);color:#fff;
+  box-shadow:0 0 0 1px rgba(255,255,255,.2)}
+.nav-tab .tab-icon{margin-right:5px;font-size:14px}
+
+/* ===== LAYOUT ===== */
+.page{display:none;padding:28px 24px;max-width:960px;margin:0 auto;animation:fadeIn .25s ease}
+.page.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+/* ===== COMMON CARDS ===== */
+.card{background:var(--card);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow)}
+.section-title{font-size:17px;font-weight:700;color:var(--text);margin-bottom:16px;
+  display:flex;align-items:center;gap:8px}
+.section-title::before{content:'';width:4px;height:18px;background:var(--primary);
+  border-radius:2px;display:inline-block}
+.tag{display:inline-block;padding:3px 10px;border-radius:99px;font-size:11px;font-weight:600}
+.tag-single{background:#fff3e0;color:#e65100}
+.tag-multi{background:#e3f2fd;color:#1565c0}
+.tag-chapter{background:#f3e5f5;color:#6a1b9a}
+.btn{padding:10px 24px;border-radius:var(--radius3);border:none;cursor:pointer;
+  font-size:14px;font-weight:600;transition:.2s;letter-spacing:.3px}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:var(--primary);color:#fff;box-shadow:0 2px 8px rgba(192,57,43,.3)}
+.btn-primary:hover{background:var(--primary2);box-shadow:0 4px 12px rgba(192,57,43,.4)}
+.btn-secondary{background:#f4f5f7;color:var(--text2)}
+.btn-secondary:hover{background:#e8eaed;color:var(--text)}
+.btn-green{background:var(--green);color:#fff;box-shadow:0 2px 8px rgba(39,174,96,.3)}
+.btn-green:hover{background:var(--green2)}
+.btn-blue{background:var(--blue);color:#fff}
+.btn-blue:hover{background:var(--blue2)}
+.btn:disabled{opacity:.45;cursor:not-allowed;pointer-events:none}
+.btn-row{display:flex;gap:12px;margin-top:20px;flex-wrap:wrap;align-items:center}
+
+/* ===== HOME ===== */
+.home-hero{background:linear-gradient(135deg,var(--dark) 0%,var(--dark2) 50%,var(--dark3) 100%);
+  color:#fff;border-radius:var(--radius);padding:36px 32px;margin-bottom:24px;
+  position:relative;overflow:hidden}
+.home-hero::after{content:'📚';position:absolute;right:32px;top:50%;transform:translateY(-50%);
+  font-size:80px;opacity:.08}
+.home-hero h1{font-size:22px;font-weight:700;margin-bottom:8px;letter-spacing:.5px}
+.home-hero p{font-size:13px;opacity:.7;line-height:1.8}
+.home-hero .hero-badge{display:inline-block;background:rgba(255,255,255,.15);
+  padding:4px 14px;border-radius:99px;font-size:12px;margin-bottom:14px;
+  border:1px solid rgba(255,255,255,.2)}
+.stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:24px}
+.stat-box{background:var(--card);border-radius:var(--radius);padding:20px 16px;
+  text-align:center;box-shadow:var(--shadow);transition:.2s;cursor:default}
+.stat-box:hover{transform:translateY(-2px);box-shadow:var(--shadow2)}
+.stat-box .num{font-size:30px;font-weight:800;line-height:1}
+.stat-box .label{font-size:12px;color:var(--text2);margin-top:6px}
+.stat-box.red .num{color:var(--primary)}
+.stat-box.gold .num{color:var(--gold)}
+.stat-box.green .num{color:var(--green)}
+.stat-box.blue .num{color:var(--blue)}
+.home-section{margin-bottom:24px}
+.chapter-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px}
+.chapter-card{background:var(--card);border-radius:var(--radius2);padding:16px;
+  box-shadow:var(--shadow);cursor:pointer;transition:.2s;
+  border-left:4px solid var(--primary);position:relative;overflow:hidden}
+.chapter-card::before{content:'';position:absolute;top:0;right:0;width:60px;height:60px;
+  border-radius:0 0 0 60px;background:var(--primary3);opacity:.4}
+.chapter-card:hover{transform:translateY(-3px);box-shadow:var(--shadow2)}
+.chapter-card h3{font-size:13px;font-weight:700;margin-bottom:5px;line-height:1.4}
+.chapter-card p{font-size:11px;color:var(--text2);margin-bottom:8px;line-height:1.5}
+.chapter-card .c-badge{font-size:11px;background:var(--primary3);color:var(--primary);
+  padding:2px 8px;border-radius:99px;display:inline-block}
+.quick-btns{display:flex;gap:12px;flex-wrap:wrap}
+.quick-btn{flex:1;min-width:180px;background:var(--card);border-radius:var(--radius2);
+  padding:20px;box-shadow:var(--shadow);cursor:pointer;transition:.2s;border:2px solid transparent;
+  display:flex;align-items:center;gap:14px}
+.quick-btn:hover{border-color:var(--primary);background:#fdf5f5;transform:translateY(-2px)}
+.quick-btn .qb-icon{font-size:28px;width:48px;height:48px;background:var(--primary3);
+  border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.quick-btn h3{font-size:15px;font-weight:700;margin-bottom:3px}
+.quick-btn p{font-size:12px;color:var(--text2)}
+/* Progress bars */
+.prog-wrap{background:#f0f0f0;border-radius:99px;height:6px;margin:6px 0;overflow:hidden}
+.prog-bar{height:6px;border-radius:99px;background:linear-gradient(90deg,var(--primary),var(--gold));transition:.5s}
+
+/* ===== PRACTICE ===== */
+.practice-filter{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px;align-items:center}
+.filter-label{font-size:13px;color:var(--text2);font-weight:600;margin-right:4px}
+.chip{padding:6px 16px;border-radius:99px;font-size:12px;cursor:pointer;
+  border:1.5px solid var(--border);background:var(--card);transition:.2s;font-weight:500}
+.chip:hover{border-color:var(--primary);color:var(--primary)}
+.chip.active{border-color:var(--primary);background:var(--primary);color:#fff}
+.q-card{background:var(--card);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow)}
+.q-card-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;flex-wrap:gap;gap:8px}
+.q-meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.q-progress-text{font-size:13px;color:var(--text2)}
+.q-num{font-size:13px;font-weight:700;color:var(--primary);background:var(--primary3);
+  padding:4px 12px;border-radius:99px}
+.q-text{font-size:16px;line-height:1.8;color:var(--text);margin-bottom:24px;font-weight:500}
+.options{display:grid;gap:10px}
+.opt{display:flex;align-items:flex-start;gap:14px;padding:14px 18px;
+  border:2px solid var(--border);border-radius:var(--radius2);cursor:pointer;
+  background:var(--card);text-align:left;font-size:14px;line-height:1.6;
+  transition:.18s;width:100%;position:relative;overflow:hidden}
+.opt::before{content:'';position:absolute;inset:0;background:transparent;transition:.18s}
+.opt:hover:not(:disabled){border-color:var(--blue2);background:#f0f7ff}
+.opt.selected{border-color:var(--blue);background:#ebf5fb}
+.opt.correct{border-color:var(--green)!important;background:#eafaf1!important}
+.opt.wrong{border-color:var(--primary2)!important;background:#fdedec!important}
+.opt.correct-hint{border-color:var(--green)!important;background:rgba(39,174,96,.06)!important}
+.opt-key{font-weight:800;min-width:22px;color:var(--blue);flex-shrink:0;font-size:15px}
+.opt.correct .opt-key{color:var(--green)}
+.opt.wrong .opt-key{color:var(--primary2)}
+.opt-mark{margin-left:auto;flex-shrink:0;font-size:16px}
+.multi-hint{font-size:12px;color:var(--text3);background:#f8f9fa;padding:8px 14px;
+  border-radius:var(--radius3);margin-bottom:10px;border-left:3px solid var(--blue2)}
+.result-bar{padding:14px 18px;border-radius:var(--radius2);margin-top:16px;
+  display:none;font-size:14px;line-height:1.6}
+.result-bar.show{display:block;animation:fadeIn .2s ease}
+.bar-correct{background:linear-gradient(90deg,#eafaf1,#f0fdf4);
+  border-left:4px solid var(--green);color:#1e8449}
+.bar-wrong{background:linear-gradient(90deg,#fdedec,#fff5f5);
+  border-left:4px solid var(--primary2);color:#c0392b}
+.result-bar .answer-hint{font-weight:700;margin-bottom:4px}
+
+/* ===== EXAM ===== */
+.exam-setup{text-align:center;padding:20px 0}
+.exam-setup h2{font-size:22px;font-weight:700;margin-bottom:8px}
+.exam-setup p{color:var(--text2);font-size:13px;margin-bottom:24px}
+.exam-opts-row{display:flex;gap:16px;justify-content:center;margin:16px 0;flex-wrap:wrap}
+.exam-opt{padding:12px 24px;border:2px solid var(--border);border-radius:var(--radius2);
+  cursor:pointer;font-size:14px;font-weight:600;transition:.2s;background:var(--card);min-width:90px}
+.exam-opt:hover{border-color:var(--primary);color:var(--primary)}
+.exam-opt.sel{border-color:var(--primary);background:var(--primary);color:#fff;
+  box-shadow:0 2px 8px rgba(192,57,43,.3)}
+.exam-opts-label{font-size:13px;color:var(--text2);font-weight:600;margin:16px 0 8px;text-align:center}
+.exam-header{display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:20px;flex-wrap:wrap;gap:10px}
+.timer{background:linear-gradient(135deg,var(--dark),var(--dark3));color:#fff;
+  padding:8px 22px;border-radius:99px;font-size:20px;font-weight:800;
+  display:inline-flex;align-items:center;gap:8px;box-shadow:0 2px 8px rgba(0,0,0,.2)}
+.timer.warn{background:linear-gradient(135deg,var(--primary),var(--primary2));
+  animation:pulse 1s infinite}
+.timer-icon{font-size:16px}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.75}}
+.exam-progress{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--text2)}
+.exam-dot-row{display:flex;flex-wrap:wrap;gap:4px;margin:16px 0;max-height:90px;overflow-y:auto}
+.exam-dot{width:26px;height:26px;border-radius:6px;border:2px solid var(--border);
+  cursor:pointer;font-size:11px;font-weight:700;display:flex;align-items:center;
+  justify-content:center;transition:.15s;background:var(--card);color:var(--text2)}
+.exam-dot:hover{border-color:var(--blue2)}
+.exam-dot.answered{background:var(--blue2);border-color:var(--blue);color:#fff}
+.exam-dot.current{border-color:var(--primary);box-shadow:0 0 0 2px var(--primary3)}
+.exam-result{text-align:center;padding:16px 0;animation:fadeIn .3s ease}
+.score-circle-wrap{margin:0 auto 24px;width:160px;height:160px;position:relative}
+.score-circle-svg{width:100%;height:100%;transform:rotate(-90deg)}
+.score-circle-bg{fill:none;stroke:#f0f0f0;stroke-width:10}
+.score-circle-bar{fill:none;stroke:var(--primary);stroke-width:10;stroke-linecap:round;
+  transition:stroke-dashoffset 1.2s ease}
+.score-circle-inner{position:absolute;inset:0;display:flex;flex-direction:column;
+  align-items:center;justify-content:center}
+.score-num{font-size:36px;font-weight:900;color:var(--primary)}
+.score-label{font-size:12px;color:var(--text2);margin-top:2px}
+.exam-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:20px 0}
+.exam-stat-item{background:#f8f9fa;border-radius:var(--radius2);padding:14px;text-align:center}
+.exam-stat-item .n{font-size:22px;font-weight:800}
+.exam-stat-item .l{font-size:12px;color:var(--text2);margin-top:3px}
+.exam-stat-item.c .n{color:var(--green)}
+.exam-stat-item.w .n{color:var(--primary)}
+.exam-stat-item.t .n{color:var(--blue)}
+
+/* ===== WRONG BOOK ===== */
+.wrong-toolbar{display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:16px;flex-wrap:wrap;gap:10px}
+.wrong-empty{text-align:center;padding:80px 24px;color:var(--text3)}
+.wrong-empty .icon{font-size:56px;display:block;margin-bottom:12px}
+.wrong-empty h3{font-size:17px;color:var(--text2);margin-bottom:6px}
+.wrong-empty p{font-size:13px}
+.wrong-list{display:grid;gap:14px}
+.wrong-item{background:var(--card);border-radius:var(--radius);padding:20px;
+  box-shadow:var(--shadow);border-left:4px solid var(--primary2);transition:.2s}
+.wrong-item:hover{box-shadow:var(--shadow2)}
+.wrong-item-header{display:flex;align-items:center;gap:8px;margin-bottom:10px;flex-wrap:wrap}
+.wrong-q{font-size:14px;font-weight:600;color:var(--text);line-height:1.7;margin-bottom:10px}
+.wrong-detail{font-size:13px;padding:10px 14px;border-radius:var(--radius3);margin-top:8px}
+.wrong-detail.my-ans{background:#fef9e7;color:#856404;border-left:3px solid var(--gold)}
+.wrong-detail.right-ans{background:#eafaf1;color:#1e8449;border-left:3px solid var(--green)}
+.wrong-detail label{font-weight:700;margin-right:6px}
+.wrong-count-badge{margin-left:auto;background:var(--primary3);color:var(--primary);
+  font-size:11px;padding:2px 8px;border-radius:99px;font-weight:600}
+.wrong-action-row{display:flex;gap:8px;margin-top:14px;border-top:1px solid var(--border);padding-top:14px}
+.wrong-action-row .btn{padding:6px 16px;font-size:12px}
+/* Wrong stats */
+.wrong-stat-row{display:flex;gap:10px;margin-bottom:18px;flex-wrap:wrap}
+.wrong-stat{background:var(--card);border-radius:var(--radius2);padding:14px 18px;
+  box-shadow:var(--shadow);flex:1;min-width:100px;text-align:center}
+.wrong-stat .sn{font-size:22px;font-weight:800;color:var(--primary)}
+.wrong-stat .sl{font-size:12px;color:var(--text2);margin-top:2px}
+/* Search */
+.search-wrap{display:flex;gap:8px;margin-bottom:16px}
+.search-input{flex:1;padding:10px 16px;border:2px solid var(--border);border-radius:var(--radius3);
+  font-size:14px;outline:none;transition:.2s;background:var(--card)}
+.search-input:focus{border-color:var(--blue2)}
+
+/* ===== MIND MAP ===== */
+.mind-search{display:flex;gap:8px;margin-bottom:18px}
+.mind-chapters{display:grid;gap:14px}
+.mind-item{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;transition:.2s}
+.mind-item:hover{box-shadow:var(--shadow2)}
+.mind-head{padding:16px 20px;cursor:pointer;display:flex;align-items:center;
+  justify-content:space-between;user-select:none;
+  background:linear-gradient(90deg,var(--dark) 0%,var(--dark3) 100%);color:#fff}
+.mind-head-left{display:flex;align-items:center;gap:10px}
+.mind-chapter-num{width:32px;height:32px;border-radius:8px;background:rgba(255,255,255,.15);
+  display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;flex-shrink:0}
+.mind-chapter-title{font-size:14px;font-weight:700;letter-spacing:.3px}
+.mind-chapter-sub{font-size:11px;opacity:.65;margin-top:2px}
+.mind-toggle{font-size:14px;transition:.25s}
+.mind-body{display:none;padding:20px;border-top:1px solid var(--border)}
+.mind-body.open{display:block;animation:fadeIn .2s ease}
+.points-grid{display:grid;gap:8px}
+.point-item{display:flex;align-items:flex-start;gap:12px;padding:10px 14px;
+  border-radius:var(--radius3);background:#f8f9fa;transition:.15s;font-size:13px;line-height:1.7}
+.point-item:hover{background:#f0f2f5}
+.point-num{width:22px;height:22px;border-radius:50%;background:var(--primary);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-size:11px;
+  font-weight:800;flex-shrink:0;margin-top:2px}
+.point-text{color:var(--text)}
+.key-word{background:#fff3cd;color:#664d03;padding:1px 6px;border-radius:4px;
+  font-weight:700;font-size:12px}
+.mind-q-count{font-size:11px;background:rgba(255,255,255,.15);padding:2px 8px;
+  border-radius:99px;margin-left:8px}
+
+/* ===== MODAL ===== */
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);
+  z-index:200;align-items:center;justify-content:center;backdrop-filter:blur(4px)}
+.overlay.open{display:flex;animation:fadeIn .2s ease}
+.modal{background:var(--card);border-radius:var(--radius);padding:28px;
+  max-width:500px;width:90%;max-height:85vh;overflow-y:auto;
+  box-shadow:0 16px 48px rgba(0,0,0,.25);animation:slideUp .25s ease}
+@keyframes slideUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.modal-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+.modal-header h3{font-size:18px;font-weight:700}
+.modal-close{background:none;border:none;font-size:20px;cursor:pointer;
+  color:var(--text2);width:32px;height:32px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center}
+.modal-close:hover{background:#f0f0f0;color:var(--text)}
+
+/* ===== TOAST ===== */
+.toast{position:fixed;bottom:32px;left:50%;transform:translateX(-50%) translateY(80px);
+  background:var(--dark);color:#fff;padding:12px 24px;border-radius:99px;
+  font-size:14px;z-index:999;transition:.3s;opacity:0;pointer-events:none;
+  box-shadow:0 4px 20px rgba(0,0,0,.25)}
+.toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:680px){
+  .nav{padding:0 16px}.nav-title{font-size:13px}.nav-tab{padding:6px 10px;font-size:12px}
+  .page{padding:16px 12px}
+  .stat-row{grid-template-columns:repeat(2,1fr)}
+  .chapter-grid{grid-template-columns:1fr 1fr}
+  .exam-stats{grid-template-columns:1fr 1fr 1fr}
+  .quick-btn{min-width:140px}
+}
+@media(max-width:420px){
+  .nav-tabs{gap:2px}.nav-tab{padding:6px 8px;font-size:11px}
+  .chapter-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-brand">
+    <div class="nav-logo">🇨🇳</div>
+    <div>
+      <div class="nav-title">习近平新时代思想概论</div>
+      <div class="nav-sub">智能学习系统</div>
+    </div>
+  </div>
+  <div class="nav-tabs">
+    <button class="nav-tab active" onclick="showPage('home')"><span class="tab-icon">🏠</span>首页</button>
+    <button class="nav-tab" onclick="showPage('practice')"><span class="tab-icon">✏️</span>练习</button>
+    <button class="nav-tab" onclick="showPage('exam')"><span class="tab-icon">📝</span>考试</button>
+    <button class="nav-tab" onclick="showPage('wrong')"><span class="tab-icon">📌</span>错题本</button>
+    <button class="nav-tab" onclick="showPage('mind')"><span class="tab-icon">🗺️</span>导图</button>
+  </div>
+</nav>
+
+<!-- ===== HOME ===== -->
+<div id="page-home" class="page active">
+  <div class="home-hero">
+    <div class="hero-badge">🎓 全册复习 · 智能练习</div>
+    <h1>习近平新时代中国特色社会主义思想概论</h1>
+    <p>涵盖17个章节 · 171道单选题 · 105道多选题 · 完整知识体系</p>
+  </div>
+
+  <div class="stat-row">
+    <div class="stat-box red"><div class="num" id="stat-total">276</div><div class="label">📚 题目总数</div></div>
+    <div class="stat-box gold"><div class="num" id="stat-done">0</div><div class="label">✅ 已练习</div></div>
+    <div class="stat-box green"><div class="num" id="stat-acc">—</div><div class="label">🎯 正确率</div></div>
+    <div class="stat-box blue"><div class="num" id="stat-wrong">0</div><div class="label">📌 错题数</div></div>
+  </div>
+
+  <div class="home-section">
+    <div class="section-title">快速开始</div>
+    <div class="quick-btns">
+      <div class="quick-btn" onclick="startQuickPractice('all')">
+        <div class="qb-icon">✏️</div>
+        <div><h3>随机练习</h3><p>打乱全部题目练习</p></div>
+      </div>
+      <div class="quick-btn" onclick="startQuickPractice('single')">
+        <div class="qb-icon">🔢</div>
+        <div><h3>单选专练</h3><p>171道单选题</p></div>
+      </div>
+      <div class="quick-btn" onclick="startQuickPractice('multi')">
+        <div class="qb-icon">☑️</div>
+        <div><h3>多选专练</h3><p>105道多选题</p></div>
+      </div>
+      <div class="quick-btn" onclick="startExamMode()">
+        <div class="qb-icon">⏱️</div>
+        <div><h3>模拟考试</h3><p>限时模拟测验</p></div>
+      </div>
+      <div class="quick-btn" onclick="startWrongPractice()">
+        <div class="qb-icon">🔁</div>
+        <div><h3>错题重练</h3><p>针对错题专项练习</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="home-section">
+    <div class="section-title">章节导航</div>
+    <div class="chapter-grid" id="chapter-grid"></div>
+  </div>
+</div>
+
+<!-- ===== PRACTICE ===== -->
+<div id="page-practice" class="page">
+  <div class="practice-filter">
+    <span class="filter-label">题型：</span>
+    <span class="chip active" id="filter-type-all" onclick="setFilter('type','all')">全部</span>
+    <span class="chip" id="filter-type-single" onclick="setFilter('type','single')">单选</span>
+    <span class="chip" id="filter-type-multi" onclick="setFilter('type','multi')">多选</span>
+    <span style="width:1px;height:20px;background:var(--border);margin:0 4px"></span>
+    <span class="filter-label">章节：</span>
+    <span class="chip active" id="filter-ch-all" onclick="setFilter('ch','all')">全部</span>
+    <span id="chapter-chips"></span>
+  </div>
+
+  <div class="q-card" id="q-card">
+    <div class="q-card-header">
+      <div class="q-meta">
+        <span class="q-num" id="q-num">1/276</span>
+        <span class="tag" id="q-type-tag">单选题</span>
+        <span class="tag tag-chapter" id="q-chapter-tag">第一章</span>
+      </div>
+      <span class="q-progress-text" id="q-progress-text"></span>
+    </div>
+    <div class="prog-wrap"><div class="prog-bar" id="q-progress-bar" style="width:0%"></div></div>
+    <p class="q-text" id="q-text" style="margin-top:16px">加载中...</p>
+    <div id="multi-hint" class="multi-hint" style="display:none">💡 多选题：请选择所有正确答案，确认后点击"提交答案"</div>
+    <div class="options" id="options"></div>
+    <div class="result-bar" id="result-bar"></div>
+    <div class="btn-row">
+      <button class="btn btn-secondary" onclick="prevQuestion()" id="btn-prev" disabled>← 上一题</button>
+      <button class="btn btn-primary" onclick="submitOrNext()" id="btn-main">提交答案</button>
+      <button class="btn btn-secondary" onclick="skipQuestion()" id="btn-skip">跳过</button>
+      <span id="q-correct-count" style="font-size:13px;color:var(--text2);margin-left:auto"></span>
+    </div>
+  </div>
+
+  <div style="margin-top:16px;display:flex;gap:10px;align-items:center">
+    <button class="btn btn-secondary" onclick="shuffleAndRestart()">🔀 重新打乱</button>
+    <button class="btn btn-secondary" onclick="resetProgress()">🗑️ 清除进度</button>
+    <span id="filter-count" style="font-size:13px;color:var(--text2);margin-left:auto"></span>
+  </div>
+</div>
+
+<!-- ===== EXAM ===== -->
+<div id="page-exam" class="page">
+  <!-- Setup -->
+  <div id="exam-setup" class="card exam-setup">
+    <div style="font-size:48px;margin-bottom:12px">📝</div>
+    <h2>模拟考试</h2>
+    <p>系统将随机抽取题目，计时作答，交卷后显示详细成绩报告</p>
+    <div class="exam-opts-label">📊 题目数量</div>
+    <div class="exam-opts-row" id="exam-count-opts">
+      <div class="exam-opt sel" data-count="20" onclick="selectExamOpt(this,'count')">20题</div>
+      <div class="exam-opt" data-count="30" onclick="selectExamOpt(this,'count')">30题</div>
+      <div class="exam-opt" data-count="50" onclick="selectExamOpt(this,'count')">50题</div>
+      <div class="exam-opt" data-count="276" onclick="selectExamOpt(this,'count')">全部</div>
+    </div>
+    <div class="exam-opts-label">⏱️ 考试时长</div>
+    <div class="exam-opts-row" id="exam-time-opts">
+      <div class="exam-opt" data-time="15" onclick="selectExamOpt(this,'time')">15分钟</div>
+      <div class="exam-opt sel" data-time="30" onclick="selectExamOpt(this,'time')">30分钟</div>
+      <div class="exam-opt" data-time="60" onclick="selectExamOpt(this,'time')">60分钟</div>
+      <div class="exam-opt" data-time="0" onclick="selectExamOpt(this,'time')">不限时</div>
+    </div>
+    <div class="exam-opts-label">📚 题型范围</div>
+    <div class="exam-opts-row" id="exam-type-opts">
+      <div class="exam-opt sel" data-etype="all" onclick="selectExamOpt(this,'etype')">全部题型</div>
+      <div class="exam-opt" data-etype="single" onclick="selectExamOpt(this,'etype')">单选题</div>
+      <div class="exam-opt" data-etype="multi" onclick="selectExamOpt(this,'etype')">多选题</div>
+    </div>
+    <div class="btn-row" style="justify-content:center;margin-top:28px">
+      <button class="btn btn-primary" style="padding:12px 40px;font-size:16px" onclick="startExam()">🚀 开始考试</button>
+    </div>
+  </div>
+
+  <!-- Doing -->
+  <div id="exam-doing" style="display:none">
+    <div class="card" style="margin-bottom:14px">
+      <div class="exam-header">
+        <div class="timer" id="exam-timer"><span class="timer-icon">⏱️</span><span id="timer-text">30:00</span></div>
+        <div class="exam-progress">
+          <span id="exam-q-index">1/20</span>
+          <span>·</span>
+          <span id="exam-answered-count">已答 0 题</span>
+        </div>
+        <button class="btn btn-primary" onclick="submitExam()">交卷</button>
+      </div>
+      <div class="exam-dot-row" id="exam-dots"></div>
+    </div>
+    <div class="q-card" id="exam-q-card">
+      <div class="q-card-header">
+        <div class="q-meta">
+          <span class="q-num" id="exam-q-num">1/20</span>
+          <span class="tag" id="exam-q-type">单选题</span>
+          <span class="tag tag-chapter" id="exam-q-chapter">第一章</span>
+        </div>
+      </div>
+      <p class="q-text" id="exam-q-text">加载中...</p>
+      <div id="exam-multi-hint" class="multi-hint" style="display:none">💡 多选题：可选择多个答案</div>
+      <div class="options" id="exam-options"></div>
+      <div class="btn-row">
+        <button class="btn btn-secondary" onclick="examPrev()" id="exam-btn-prev" disabled>← 上一题</button>
+        <button class="btn btn-primary" onclick="examNext()" id="exam-btn-next">下一题 →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Result -->
+  <div id="exam-result" style="display:none">
+    <div class="card exam-result">
+      <h2 style="font-size:20px;margin-bottom:20px">🎉 考试完成</h2>
+      <div class="score-circle-wrap">
+        <svg class="score-circle-svg" viewBox="0 0 120 120">
+          <circle class="score-circle-bg" cx="60" cy="60" r="50"/>
+          <circle class="score-circle-bar" id="score-arc" cx="60" cy="60" r="50"
+            stroke-dasharray="314" stroke-dashoffset="314"/>
+        </svg>
+        <div class="score-circle-inner">
+          <div class="score-num" id="result-score">0</div>
+          <div class="score-label">得分</div>
+        </div>
+      </div>
+      <div class="exam-stats">
+        <div class="exam-stat-item c"><div class="n" id="result-correct">0</div><div class="l">✅ 答对</div></div>
+        <div class="exam-stat-item w"><div class="n" id="result-wrong">0</div><div class="l">❌ 答错</div></div>
+        <div class="exam-stat-item t"><div class="n" id="result-total">0</div><div class="l">📊 总题数</div></div>
+      </div>
+      <div id="result-chapter-stats" style="margin:16px 0;text-align:left"></div>
+      <div class="btn-row" style="justify-content:center">
+        <button class="btn btn-primary" onclick="reviewExam()">查看解析</button>
+        <button class="btn btn-secondary" onclick="resetExam()">重新考试</button>
+      </div>
+    </div>
+    <!-- Review area -->
+    <div id="exam-review" style="display:none;margin-top:16px"></div>
+  </div>
+</div>
+
+<!-- ===== WRONG BOOK ===== -->
+<div id="page-wrong" class="page">
+  <div class="wrong-stat-row">
+    <div class="wrong-stat"><div class="sn" id="w-total">0</div><div class="sl">错题总数</div></div>
+    <div class="wrong-stat"><div class="sn" id="w-single">0</div><div class="sl">单选错题</div></div>
+    <div class="wrong-stat"><div class="sn" id="w-multi">0</div><div class="sl">多选错题</div></div>
+    <div class="wrong-stat"><div class="sn" id="w-mastered">0</div><div class="sl">已掌握</div></div>
+  </div>
+
+  <div class="wrong-toolbar">
+    <div class="practice-filter" style="margin-bottom:0">
+      <span class="chip active" id="wf-all" onclick="setWrongFilter('all')">全部</span>
+      <span class="chip" id="wf-single" onclick="setWrongFilter('single')">单选</span>
+      <span class="chip" id="wf-multi" onclick="setWrongFilter('multi')">多选</span>
+      <span class="chip" id="wf-mastered" onclick="setWrongFilter('mastered')">已掌握</span>
+    </div>
+    <div style="display:flex;gap:8px">
+      <button class="btn btn-primary" style="padding:7px 16px;font-size:12px" onclick="practiceWrong()">🔁 错题练习</button>
+      <button class="btn btn-secondary" style="padding:7px 16px;font-size:12px" onclick="clearWrong()">🗑️ 清空错题</button>
+    </div>
+  </div>
+
+  <div class="search-wrap">
+    <input class="search-input" id="wrong-search" placeholder="🔍 搜索错题内容..." oninput="renderWrongList()">
+  </div>
+
+  <div id="wrong-list-container">
+    <div class="wrong-empty">
+      <span class="icon">🎉</span>
+      <h3>暂无错题</h3>
+      <p>做题时答错的题目会自动收录到这里</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== MIND MAP ===== -->
+<div id="page-mind" class="page">
+  <div class="card" style="margin-bottom:18px;padding:16px 20px;background:linear-gradient(135deg,var(--dark),var(--dark3));color:#fff">
+    <div style="display:flex;align-items:center;gap:12px">
+      <div style="font-size:32px">🗺️</div>
+      <div>
+        <div style="font-size:16px;font-weight:700;margin-bottom:4px">知识思维导图</div>
+        <div style="font-size:12px;opacity:.7">17个章节 · 全部重点考点精华整理</div>
+      </div>
+    </div>
+  </div>
+  <div class="mind-search">
+    <input class="search-input" id="mind-search" placeholder="🔍 搜索关键词..." oninput="filterMind()">
+    <button class="btn btn-secondary" onclick="expandAllMind()">全部展开</button>
+    <button class="btn btn-secondary" onclick="collapseAllMind()">全部折叠</button>
+  </div>
+  <div class="mind-chapters" id="mind-chapters"></div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- MODAL -->
+<div class="overlay" id="overlay">
+  <div class="modal" id="modal">
+    <div class="modal-header">
+      <h3 id="modal-title">提示</h3>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
